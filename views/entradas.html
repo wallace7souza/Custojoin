@@ -1,0 +1,100 @@
+<style type="text/css">
+	.tituloContaEntrada{
+		text-align: center;
+		margin-bottom: 20px;
+	}
+
+	.formEntrada{
+		margin-left: 15%;
+	}
+
+	.form-control{
+		width: 20%;
+		display: inline-block;
+	}
+
+	.tableExibeContas{
+		margin-top: 20px;
+		width: 90%;
+	}
+
+	#valorTotal{
+		width: 50%;
+		text-align: right;
+		margin-left: 20%;
+	}
+</style>
+
+<div class="container-fluid" ng-controller="InicialCtrl">
+	<div class="row logoFluxojojn">
+		<div class="col-md-6">
+			<div class="fluxojoin"><img src="imgs/fluxojoin.png"></div>
+		</div>
+		<div class="col-md-3 nomeEmpresa">
+			<h4>{{empresa}}</h4>
+		</div>
+		<div class="col-md-3 nomeUsuario">
+			<h4>Olá, {{usuario}}</h4>
+		</div>
+	</div>
+	<div ng-include="'views/links.html'"></div>
+
+	<div class="row tituloContaEntrada">
+		<div class="col-md-12">
+		<h3>Conta de Entrada</h3>
+		</div>
+	</div>
+
+	<form name="adicionaConta" class="formEntrada">
+	<div class="row" ng-controller="EntradaCtrl">
+		<div class="col-md-12">
+			<input type="hidden" name="data" ng-model="conta.idcontaEntrada">
+			<div class="exibeCalendario">
+				Calendário
+			</div>
+			<input class="form-control calendario" id="data" type="date" name="data" ng-model="conta.data">
+
+			<select class="form-control" name="subcategoria" ng-model="conta.subcategoria" required>
+				<option value="">Selecione subcategoria...</option>
+				<option ng-repeat="subcate in subcategoriasEntrada" value="{{ subcate.idsubcategoria }}" required>{{ subcate.subcategoria }}</option>
+			</select>
+
+			<select class="form-control selcionarConta" name="conta" ng-model="conta.idconta" required>
+				<option value="">Selecione conta...</option>
+				<option ng-repeat="contaE in contasEntradas" value="{{ contaE.idconta }}">{{ contaE.conta }}</option>
+			</select>
+
+			<input type="text" class="form-control" id="currency" name="currency" ng-model="conta.valor" required>
+
+			<a class="btn btn-success" ng-disabled="adicionaConta.$invalid" ng-click="salvarEntrada(conta)">Salvar conta</a>
+		</div>
+
+		<div class="col-md-12 tableExibeContas">
+			<table width="900" class="table table-striped">
+				<thead>
+					<tr>
+						<th>Data</th>
+						<th>Subcategoria</th>
+						<th>Conta</th>
+						<th>Valor</th>
+						<th></th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr ng-repeat="contas in entradas">
+						<td>{{contas.data}}</td>
+						<td>{{contas.subcategoria}}</td>
+						<td>{{contas.entrada}}</td>
+						<td>{{contas.valor}}</td>
+						<td align="right"><a class="btn btn-warning" href="#/editarContaEntrada/{{contas.idcontaEntrada}}">editar</a></td>
+					</tr>
+				</tbody>
+			</table>
+			<div id="valorTotal">
+				Valor Total Entrada: {{valorTotalEntrada}}
+			</div>	
+		</div>
+	</div>
+	</form>
+
+</div>

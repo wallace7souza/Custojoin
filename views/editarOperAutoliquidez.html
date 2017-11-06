@@ -1,0 +1,82 @@
+<style type="text/css">
+.configTitulo{
+	text-align: center;
+}
+
+.linksFinanceiros{
+	text-align: center;
+}
+
+.exibeBens{
+	text-align: center;
+	margin-top: 20px;
+}
+
+.formAutoliquidez{
+	text-align: center;
+	margin-top: 20px;
+}
+
+.dataAutoliquidez{
+	width: 15%;
+	display: inline-block;
+}
+.autoAutoliquidez{
+	width: 25%;
+	display: inline-block;
+}
+.valorAutoliquidez{
+	width: 15%;
+	display: inline-block;
+}
+
+.msgAtualizaOK{
+	text-align: center;
+	margin-top: 30px;
+	color: #0000e6;
+}
+
+</style>
+<div class="container-fluid">
+	<div class="row logoFluxojojn">
+		<div class="col-md-6">
+			<div class="fluxojoin"><img src="imgs/fluxojoin.png"></div>
+		</div>
+		<div class="col-md-3 nomeEmpresa">
+			<h4>{{empresa}}</h4>
+		</div>
+		<div class="col-md-3 nomeUsuario">
+			<h4>Olá, {{usuario}}</h4>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-md-12 botaoVoltar">
+			<a class="btn btn-default" href="#/configuracoes">Voltar</a>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-md-12 configTitulo">
+			<h3>Editar Operações de Autoliquidez</h3>
+		</div>
+	</div>
+
+	<div class="row" ng-controller="EditarOperacoesAutoliquidezCtrl">
+		<div class="col-md-12 formAutoliquidez">
+			<form name="formAutoliquidez">
+				<input type="hidden" name="idoperacoesAutoliquidez" ng-model="operAutoliquidez.idoperacoesAutoliquidez">
+				<input class="form-control dataAutoliquidez" type="text" name="data" ng-model="operAutoliquidez.data">
+				<input class="form-control autoAutoliquidez" type="text" name="autoliquidez" ng-model="operAutoliquidez.autoliquidez" placeholder="Operação Autoliquidez" required>
+				<input class="form-control valorAutoliquidez" type="text" name="valor" ng-model="operAutoliquidez.valor" placeholder="Valor" required>
+				<a class="btn btn-success" ng-disabled="" ng-click="atualizarAutoliquidez(operAutoliquidez)">Atualizar</a>
+			</form>
+			<div class="msgAtualizaOK">
+				{{msgAtualizaOK}}
+			</div>
+		</div>
+	</div>
+
+
+</div>
+
+
+

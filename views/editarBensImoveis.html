@@ -1,0 +1,97 @@
+<style type="text/css">
+.formAtualizaBensImoveis{
+	text-align: center;
+	margin-top: 20px;
+}
+
+.bem{
+	width: 15%;
+	display: inline-block;
+}
+
+.valor{
+	width: 10%;
+	display: inline-block;
+}
+
+.dataAqui{
+	width: 13%;
+	display: inline-block;
+}
+
+.numero,.periodo{
+	width: 12%;
+	display: inline-block;
+}
+
+.msgAtualizaOK{
+	text-align: center;
+	margin-top: 30px;
+	color: #0000e6;
+}
+
+</style>
+<div class="container-fluid">
+	<div class="row logoFluxojojn">
+		<div class="col-md-6">
+			<div class="fluxojoin"><img src="imgs/fluxojoin.png"></div>
+		</div>
+		<div class="col-md-3 nomeEmpresa">
+			<h4>{{empresa}}</h4>
+		</div>
+		<div class="col-md-3 nomeUsuario">
+			<h4>Olá, {{usuario}}</h4>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-md-12 botaoVoltar">
+			<a class="btn btn-default" href="#/cadastrarBensImoveis">Voltar</a>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-md-12 configTitulo">
+			<h3>Editar Depreciação de Bens/Imobilizados</h3>
+		</div>
+	</div>
+	
+	<div class="row" ng-controller="EditarBensImoveisCtrl">
+		<div class="col-md-12">
+			<form name="formAtualizaBensImoveis" class="formAtualizaBensImoveis">
+				<input type="hidden" name="idbensimoveis" ng-model="bensImoveis.idbensimoveis">
+				<input class="form-control bem" type="text" name="bem" ng-model="bensImoveis.bemimovel" required>
+				<input class="form-control valor" type="text" name="valorBem" ng-model="bensImoveis.valor" required>
+				<input class="form-control valor" type="text" name="valorRes" ng-model="bensImoveis.valorResidual" required>
+				Data Aquisição
+				<input class="form-control dataAqui" type="text" name="dataAquisicao" ng-model="bensImoveis.dataAquisicao">
+				<select class="form-control numero" name="numero" ng-model="bensImoveis.numero" required>
+					<option value="">Selecione número</option>
+					<option value="1">1</option>
+					<option value="2">2</option>
+					<option value="3">3</option>
+					<option value="4">4</option>
+					<option value="5">5</option>
+					<option value="6">6</option>
+					<option value="7">7</option>
+					<option value="8">8</option>
+					<option value="9">9</option>
+					<option value="10">10</option>
+				</select>
+				<select class="form-control periodo" name="periodo" ng-model="bensImoveis.periodo" required>
+					<option value="">Selecione o periodo</option>
+					<option value="mes">Mês</option>
+					<option value="anos">Anos</option>
+				</select>
+				<a class="btn btn-success" ng-disabled="formDepreciacao.$invalid" ng-click="atualizaBensImoveis(bensImoveis)">Salvar</a>
+			</form>
+			<div class="msgAtualizaOK">
+				{{msgAtualizaOK}}
+			</div>
+		</div>
+		
+	</div>
+
+
+</div>
+
+
+

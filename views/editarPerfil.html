@@ -1,0 +1,126 @@
+<style type="text/css">
+	.perfilTitulo{
+		text-align: center;
+	}
+
+	.form-control{
+		width: 70%;
+	}
+
+	.formEditarUsuario{
+		margin-left: 15%;
+		width: 30%;
+	}
+
+	.formAtualizarEmpresa{
+		width: 30%;
+		margin-left: 17%;
+	}
+
+	.botaoAtualizarUsuario, .botaoAtualizarEmpresa{
+		width: 70%;
+		margin-top: 20px;
+	}
+
+	#msgAtualizadoSucesso{
+		margin-left: 8%;
+		color: #0033cc;
+		margin-top: 20px;
+	}
+
+	#msgEmpresaAtualizadaSucesso{
+		margin-left: 3%;
+		color: #0033cc;
+	}
+</style>
+<div class="container-fluid" ng-controller="EditarPerfilCtrl">
+	<div class="row logoFluxojojn">
+		<div class="col-md-6">
+			<div class="fluxojoin"><img src="imgs/fluxojoin.png"></div>
+		</div>
+		<div class="col-md-3 nomeEmpresa">
+			<h4>{{empresa}}</h4>
+		</div>
+		<div class="col-md-3 nomeUsuario">
+			<h4>Olá, {{usuario}}</h4>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-md-12 botaoVoltar">
+			<a class="btn btn-default" href="#/configuracoes">Voltar</a>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-md-12 perfilTitulo">
+			<h3>Editar perfil Usuário e Empresa</h3>
+		</div>
+	</div>
+
+	<div class="row">
+		<div class="col-md-6 formEditarUsuario" ng-repeat="usuario in usuarios">
+			<form name="formAtualizarUsuario">
+				<label>Nome</label>
+				<input class="form-control" type="text" name="nome" ng-model="usuario.nome">
+				<label>E-mail</label>
+				<input class="form-control" type="text" name="email" ng-model="usuario.email">
+				<label>Usuário</label>
+				<input class="form-control" type="text" name="usuario" ng-model="usuario.usuario">
+				<label>Senha</label>
+				<input class="form-control" type="password" name="senha" ng-model="usuario.senha">
+				<a class="btn btn-success botaoAtualizarUsuario" ng-click="atualizarUsuario(usuario)">Atualizar</a>
+			</form>
+			<div id="msgAtualizadoSucesso">{{msgSucesso}}</div>
+		</div>
+
+		<div class="col-md-6 formAtualizarEmpresa" ng-repeat="empresa in empresas">
+			<form>
+				<label>Empresa</label>
+				<input class="form-control" type="text" name="empresa" ng-model="empresa.empresa">
+				<label>Endereço</label>
+				<input class="form-control" type="text" name="endereco" ng-model="empresa.endereco">
+				<label>CNPJ</label>
+				<input class="form-control" type="text" name="cnpj" ng-model="empresa.cnpj">
+				<label>Inscrição Estadual</label>
+				<input class="form-control" type="text" name="iestadual" ng-model="empresa.iestadual">
+				<label>Telefone</label>
+				<input class="form-control" type="text" name="telefone" ng-model="empresa.telefone">
+				<label>Cidade</label>
+				<input class="form-control" type="text" nome="cidade" ng-model="empresa.cidade">
+				<label>Estado</label>
+				<select class="form-control" nome="estado" ng-model="empresa.estado">
+					<option value="">Selecione...</option>
+					<option value="AC">Acre</option>
+					<option value="AL">Alagoas</option>
+					<option value="AP">Amapá</option>
+					<option value="AM">Amazonas</option>
+					<option value="BA">Bahia</option>
+					<option value="CE">Ceará</option>
+					<option value="DF">Distrito Federal</option>
+					<option value="ES">Espírito Santo</option>
+					<option value="GO">Goiás</option>
+					<option value="MA">Maranhão</option>
+					<option value="MT">Mato Grosso</option>
+					<option value="MS">Mato Grosso do Sul</option>
+					<option value="MG">Minas Gerais</option>
+					<option value="PA">Pará</option>
+					<option value="PB">Paraíba</option>
+					<option value="PR">Paraná</option>
+					<option value="PE">Pernambuco</option>
+					<option value="PI">Piauí</option>
+					<option value="RJ">Rio de Janeiro</option>
+					<option value="RN">Rio Grande do Norte</option>
+					<option value="RS">Rio Grande do Sul</option>
+					<option value="RO">Rondônia</option>
+					<option value="RR">Roraima</option>
+					<option value="SC">Santa Catarina</option>
+					<option value="SP">São Paulo</option>
+					<option value="SE">Sergipe</option>
+					<option value="TO">Tocantins</option>
+				</select>
+				<a class="btn btn-success botaoAtualizarEmpresa" ng-click="atualizarEmpresa(empresa)">Atualizar</a>
+				<div id="msgEmpresaAtualizadaSucesso">{{msgAtualEmpresaSucesso}}</div>
+			</form>
+		</div>
+	</div>
+</div>
+

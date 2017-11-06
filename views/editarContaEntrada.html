@@ -1,0 +1,92 @@
+<style type="text/css">
+	.tituloContaEntrada{
+		text-align: center;
+		margin-bottom: 20px;
+	}
+
+	.calendario{
+		width: 13%;
+		display: inline-block;
+	}
+
+	.subcategoria{
+		width: 15%;
+		display: inline-block;
+	}
+
+	.conta{
+		width: 15%;
+		display: inline-block;
+	}
+
+	.valor{
+		width: 15%;
+		display: inline-block;
+	}
+
+	.formEdicao{
+		text-align: center;
+		margin-bottom: 20px;
+	}
+
+	.msgSucesso{
+		margin-top: 20px;
+		color: #0033cc;
+	}
+</style>
+
+<div class="container-fluid" ng-controller="InicialCtrl">
+	<div class="row logoFluxojojn">
+		<div class="col-md-6">
+			<div class="fluxojoin"><img src="imgs/fluxojoin.png"></div>
+		</div>
+		<div class="col-md-3 nomeEmpresa">
+			<h4>{{empresa}}</h4>
+		</div>
+		<div class="col-md-3 nomeUsuario">
+			<h4>Olá, {{usuario}}</h4>
+		</div>
+	</div>
+	<div ng-include="'views/links.html'"></div>
+
+	<div class="row">
+		<div class="col-md-12">
+			<a class="btn btn-default botaoVoltarAreaAdmin" href="#/entradas">Voltar</a>
+		</div>
+	</div>
+
+	<div class="row tituloContaEntrada">
+		<div class="col-md-12">
+		<h3>Editar Conta de Entrada</h3>
+		</div>
+	</div>
+
+	<div class="row formEdicao">
+		<div class="col-md-12" ng-controller="EditarContaEntradaCtrl" ng-repeat="contaE in entradas">
+			<form>
+			<input type="hidden" name="idcontaEntrada" ng-model="contaE.idcontaEntrada">
+
+			<input type="date" class="form-control calendario" name="data" ng-model="contaE.data" 
+					value="{{contaE.data}}">
+
+			<select class="form-control subcategoria" name="subcategoria" ng-model="contaE.idsubcategoria">
+				<option ng-repeat="sub in subcategorias" value="{{sub.idsubcategoria}}">{{sub.subcategoria}}</option>
+			</select>
+
+			<select class="form-control conta" name="entrada" ng-model="contaE.idconta">
+				<option ng-repeat="cEntrada in contasEntrada" value="{{cEntrada.idconta}}">{{cEntrada.conta}}</option>
+			</select>
+
+			<input type="text" class="form-control valor" name="valor" ng-model="contaE.valor">
+
+			<a class="btn btn-success"  ng-click="salvarContaEditada(contaE)">Salvar edição</a>
+			<div class="msgSucesso">
+			{{msgSucesso}}
+			</div>
+			</form>
+			
+		</div>
+
+	</div>
+
+</div>

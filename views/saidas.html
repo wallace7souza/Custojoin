@@ -1,0 +1,101 @@
+<style type="text/css">
+	.tituloContaSaida{
+		text-align: center;
+		margin-bottom: 20px;
+	}
+
+	.form-control{
+		display: inline-block;
+		width: 15%;
+	}
+
+	.formContaSaida{
+		margin-left: 20%;
+	}
+
+	.tableExibeContasSaida{
+		margin-top: 20px;
+		margin-left: 10%;
+		width: 80%;
+	}
+
+	#valorTotal{
+		width: 50%;
+		text-align: right;
+		margin-left: 20%;
+	}
+</style>
+<div class="container-fluid" ng-controller="InicialCtrl">
+	<div class="row logoFluxojojn">
+		<div class="col-md-6">
+			<div class="fluxojoin"><img src="imgs/fluxojoin.png"></div>
+		</div>
+		<div class="col-md-3 nomeEmpresa">
+			<h4>{{empresa}}</h4>
+		</div>
+		<div class="col-md-3 nomeUsuario">
+			<h4>Olá, {{usuario}}</h4>
+		</div>
+	</div>
+	<div ng-include="'views/links.html'"></div>
+
+	<div class="row tituloContaSaida">
+		<div class="col-md-12" align="center">
+			<h3>Conta de Saída</h3>
+		</div>
+	</div>
+
+	<form name="adicionaConta" class="formEntrada">
+	<div class="row" ng-controller="ContaSaidaCtrl">
+
+		<div class="col-md-12 formContaSaida">
+			<input type="hidden" name="data" ng-model="conta.idconta">
+			<div class="exibeCalendario">
+				Calendário
+			</div>
+			<input class="form-control calendario" id="data" type="date" name="data" ng-model="conta.data">
+
+			<select class="form-control selecionarsubcategoria" name="subcategoria" ng-model="conta.subcategoria" required>
+				<option value="">Selecione subcategoria...</option>
+				<option ng-repeat="subcate in subcategoriasSaida" value="{{ subcate.idsubcategoria }}" required>{{ subcate.subcategoria }}</option>
+			</select>
+
+			<select class="form-control selcionarConta" name="conta" ng-model="conta.conta" required>
+				<option value="">Selecione conta...</option>
+				<option ng-repeat="contaE in contasSaida" value="{{ contaE.idconta }}">{{ contaE.conta }}</option>
+			</select>
+
+			<input type="text" class="form-control" id="currency" name="currency" ng-model="conta.valor" required>
+
+			<a class="btn btn-success" ng-disabled="adicionaConta.$invalid" ng-click="salvarContaSaida(conta)">Salvar conta</a>
+		</div>
+		<div class="col-md-12 tableExibeContasSaida">
+			<table width="900" class="table table-striped">
+				<thead>
+					<tr>
+						<th>Data</th>
+						<th>Subcategoria</th>
+						<th>Conta</th>
+						<th>Valor</th>
+						<th></th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr ng-repeat="conta in contaSaida">
+						<td>{{conta.data}}</td>
+						<td>{{conta.subcategoria}}</td>
+						<td>{{conta.saida}}</td>
+						<td>{{conta.valor}}</td>
+						<td align="right"><a class="btn btn-warning" href="#/editarContaSaida/{{conta.idcontaSaida}}">editar</a></td>
+					</tr>
+				</tbody>
+			</table>
+			<div id="valorTotal">
+				Valor Total Saida: {{valorTotalSaida}}
+			</div>
+		</div>
+	</div>	
+	</form>
+
+	
+</div>

@@ -1,0 +1,74 @@
+<style type="text/css">
+.configTitulo{
+	text-align: center;
+}
+
+.operFinanData{
+	width: 15%;
+	display: inline-block;
+}
+.operFinanOpera{
+	width: 25%;
+	display: inline-block;
+}
+.operFinanValor{
+	width: 15%;
+	display: inline-block;
+}
+
+.formularioOperFinan{
+	text-align: center;
+	margin-top: 20px;
+}
+
+.msgAtualizaOK{
+	text-align: center;
+	margin-top: 30px;
+	color: #0000e6;
+}
+
+</style>
+<div class="container-fluid">
+	<div class="row logoFluxojojn">
+		<div class="col-md-6">
+			<div class="fluxojoin"><img src="imgs/fluxojoin.png"></div>
+		</div>
+		<div class="col-md-3 nomeEmpresa">
+			<h4>{{empresa}}</h4>
+		</div>
+		<div class="col-md-3 nomeUsuario">
+			<h4>Olá, {{usuario}}</h4>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-md-12 botaoVoltar">
+			<a class="btn btn-default" href="#/cadastrarOperFinanceiras">Voltar</a>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-md-12 configTitulo">
+			<h3>Editar Operações Financeiras</h3>
+		</div>
+	</div>
+
+	<div class="row" ng-controller="EditarOperacoesFinanceirasCtrl">
+		<div class="col-md-12 formularioOperFinan">
+			<form name="">
+				<input type="hidden" name="idoperacoesFinanceiras" ng-model="operacoesFinan.idoperacoesFinanceiras">
+				<input class="form-control operFinanData" type="text" name="data" ng-model="operacoesFinan.data">
+				<input class="form-control operFinanOpera" type="text" name="operacao" ng-model="operacoesFinan.operacao" placeholder="Operação Financeira">
+				<input class="form-control operFinanValor" type="text" name="valor" ng-model="operacoesFinan.valor" placeholder="Valor">
+				<a class="btn btn-success" ng-disabled="formPagDiversos.$invalid" ng-click="atualizarOperFinan(operacoesFinan)">Atualizar</a>
+			</form>
+			<div class="msgAtualizaOK">
+				{{msgAtualizaOK}}
+			</div>
+		</div>
+		
+	</div>
+
+
+</div>
+
+
+

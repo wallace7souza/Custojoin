@@ -1,0 +1,70 @@
+<style type="text/css">
+.configTitulo{
+	text-align: center;
+}
+
+.formBanco{
+	text-align: center;
+}
+
+.agencia, .conta, .banco{
+	width: 20%;
+	margin-left: 40%;
+	text-align: left;
+}
+
+.labelAgencia, .labelConta, .labelBanco{
+	width: 20%;
+	text-align: left;
+}
+
+.banco{
+	margin-bottom: 20px;
+}
+
+.msgBanco{
+	color: #0033cc;
+}
+
+</style>
+<div class="container-fluid">
+	<div class="row logoFluxojojn">
+		<div class="col-md-6">
+			<div class="fluxojoin"><img src="imgs/fluxojoin.png"></div>
+		</div>
+		<div class="col-md-3 nomeEmpresa">
+			<h4>{{empresa}}</h4>
+		</div>
+		<div class="col-md-3 nomeUsuario">
+			<h4>Olá, {{usuario}}</h4>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-md-12 botaoVoltar">
+			<a class="btn btn-default" href="#/cadastrarBanco">Voltar</a>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-md-12 configTitulo">
+			<h3>Atualizar Banco</h3>
+		</div>
+	</div>
+
+	<div class="row" ng-controller="EditarBancoCtrl">
+		<div class="col-md-12 formBanco">
+			<form>
+				<input type="hidden" name="idbanco" ng-model="banco.idbanco"
+				<label class="labelAgencia">Agência</label>
+				<input type="text" class="form-control agencia" name="agencia" ng-model="banco.agencia" placeholder="Agência">
+				<label class="labelConta">Conta</label>
+				<input type="text" class="form-control conta" name="conta" ng-model="banco.conta" placeholder="Conta">
+				<label class="labelBanco">Banco</label>
+				<input type="text" class="form-control banco" name="nome" ng-model="banco.nome" placeholder="Banco">
+				
+				<a class="btn btn-success" ng-click="atualizarBanco(banco)">Atualizar</a>
+			</form>
+		</div>
+	</div>
+
+
+</div>

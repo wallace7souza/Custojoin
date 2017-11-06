@@ -1,0 +1,66 @@
+<style type="text/css">
+
+.configTitulo{
+	text-align: center;
+}
+
+.linksConfiguracoes{
+	text-align: center;
+	margin-top: 20px;
+}
+
+.addConta{
+	padding-left: 10px;
+	padding-right: 10px;
+}
+
+.editarPerfil{
+	padding-left: 10px;
+	padding-right: 10px;
+}
+
+.cadastrarBancos{
+	padding-left: 10px;
+	padding-right: 10px;
+}
+
+.cadastrarInvest{
+	padding-left: 10px;
+	padding-right: 10px;
+}
+
+</style>
+<div class="container-fluid" ng-controller="ConfigCtrl">
+	<div class="row logoFluxojojn">
+		<div class="col-md-6">
+			<div class="fluxojoin"><img src="imgs/fluxojoin.png"></div>
+		</div>
+		<div class="col-md-3 nomeEmpresa">
+			<h4>{{empresa}}</h4>
+		</div>
+		<div class="col-md-3 nomeUsuario">
+			<h4>Olá, {{usuario}}</h4>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-md-12 botaoVoltar">
+			<a class="btn btn-default" href="#/inicial">Voltar</a>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-md-12 configTitulo">
+			<h3>Configurações</h3>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-md-12 linksConfiguracoes">
+			<a class="addConta" ng-href="#/adicionarConta">Adicionar Contas</a>
+			<a class="editarPerfil" ng-href="#/editarPerfil">Editar Perfil</a>
+			<a class="cadastrarBancos" ng-href="#/cadastrarBanco">Cadastrar Bancos</a>
+			<a class="cadastrarInvest" ng-href="#/cadastrarBensImoveis">Adicionar Investimentos</a>
+		</div>
+	</div>
+</div>
+
+
+

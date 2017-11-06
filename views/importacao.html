@@ -1,0 +1,79 @@
+<style type="text/css">
+	.aviso{
+		margin-top: 20px;
+	}
+
+	.arquivo{
+		display: inline-block;
+		width: 70%;
+		margin-left: 34%;
+		margin-top: 20px;
+	}
+
+	.inputArquivo{
+		width: 45%;
+	}
+
+	.btnImportar{
+		margin-left: 17%;
+		margin-top: 20px;
+	}
+
+	.planilha{
+		width: 40%;
+		margin-left: 30%;
+		margin-top: 20px;
+		margin-bottom: 40px;
+	}
+
+</style>
+<div class="container-fluid" ng-controller="InicialCtrl">
+	<div class="row logoFluxojojn">
+		<div class="col-md-6">
+			<div class="fluxojoin"><img src="imgs/fluxojoin.png"></div>
+		</div>
+		<div class="col-md-3 nomeEmpresa">
+			<h4>{{empresa}}</h4>
+		</div>
+		<div class="col-md-3 nomeUsuario">
+			<h4>Olá, {{usuario}}</h4>
+		</div>
+	</div>
+
+	<div ng-include="'views/links.html'"></div>
+
+	<div class="row">
+		<div class="col-md-12" align="center">
+			<h3>Importação</h3>
+		</div>
+	</div>
+
+	<div class="row aviso">
+		<div class="col-md-4"></div>
+		<div class="col-md-4">
+			<p>O arquivo Excel a ser importado, deve estar com o layout, similar a imagem abaixo.</p>
+			<p>ENT/SAI são os tipos de movimentações (entrada ou saída).</p>
+		</div>
+		<div class="col-md-4"></div>
+	</div>
+
+	<div class="row arquivo" ng-controller="UploadCtrl">
+		<!--<div class="col-md-12" ng-controller="AppController" nv-file-drop="" uploader="uploader">
+
+			<button type="file" ngf-select="uploadFiles($file, $invalidFiles)"
+			          accept="*/*" ngf-max-height="1000" ngf-max-size="1MB">
+			      Select File</button>
+        <div>-->
+        <button type="file" ngf-select="uploadFiles($file, $invalidFiles)"
+                  accept="image/*" ngf-max-height="1000" ngf-max-size="1MB">
+              Select File</button>
+		   
+	</div>
+	<div class="row">
+		<div class="col-md-12 planilha">
+			<img src="imgs/formatoDaPlanilha.png">
+		</div>
+	</div>
+
+	
+</div>

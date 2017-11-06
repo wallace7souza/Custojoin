@@ -1,0 +1,89 @@
+<style type="text/css">
+.configTitulo{
+	text-align: center;
+}
+.formularioPagDiv{
+	text-align: center;
+	margin-top: 20px;
+}
+.dataPagDiv{
+	width: 15%;
+	display: inline-block;
+}
+.pagDiv{
+	width: 25%;
+	display: inline-block;
+}
+.valorPagDiv{
+	width: 10%;
+	display: inline-block;
+}
+.exibeBens{
+	text-align: center;
+	margin-top: 20px;
+}
+
+</style>
+<div class="container-fluid">
+	<div class="row logoFluxojojn">
+		<div class="col-md-6">
+			<div class="fluxojoin"><img src="imgs/fluxojoin.png"></div>
+		</div>
+		<div class="col-md-3 nomeEmpresa">
+			<h4>{{empresa}}</h4>
+		</div>
+		<div class="col-md-3 nomeUsuario">
+			<h4>Olá, {{usuario}}</h4>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-md-12 botaoVoltar">
+			<a class="btn btn-default" href="#/inicial">Voltar</a>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-md-12 configTitulo">
+			<h3>Pagamento Diversos</h3>
+		</div>
+	</div>
+	<div class="row">
+		<div class="linksFinanceiros" ng-include="'views/linksFinanceiros.html'"></div>
+	</div>
+	<div class="row" ng-controller="CadastrarPagDivesosCtrl">
+		<div class="col-md-12 formularioPagDiv">
+			<form name="formPagDiversos">
+				<input class="form-control dataPagDiv" type="date" name="data" ng-model="pagDiversos.data">
+				<input class="form-control pagDiv" type="text" name="Pagamento" ng-model="pagDiversos.pagamento" placeholder="Pagamento" required>
+				<input class="form-control valorPagDiv" type="text" name="valor" ng-model="pagDiversos.valor" placeholder="Valor" required>
+				<a class="btn btn-success" ng-disabled="formPagDiversos.$invalid" ng-click="salvarPagDiv(pagDiversos)">Salvar</a>
+			</form>
+		</div>
+		<div class="row">
+			<div class="col-md-12 exibeBens">
+				<table align="center" class="table-striped">
+					<thead>
+						<tr>
+							<td width="100"><b>Data</b></td>
+							<td width="200"><b>Pagamento</b></td>
+							<td width="100"><b>Valor</b></td>
+					</thead>
+					<tbody>
+						<tr ng-repeat="pd in pagamentosDiversos">
+							<td>{{pd.data}}</td>
+							<td align="left">{{pd.pagamento}}</td>
+							<td>{{pd.valor}}</td>
+							<td align="right"><a class="btn btn-sm btn-warning" href="#/editarPagDiversos/{{pd.idpagamentosDiversos}}"><span class="glyphicon glyphicon-pencil" aria-hidden="true"></span></a></td>
+							<td width="10"></td>
+							<td align="right"><a class="btn btn-sm btn-danger" href=""><span class="glyphicon glyphicon-trash"></span></a></td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</div>
+	</div>
+
+
+</div>
+
+
+

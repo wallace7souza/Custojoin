@@ -1,0 +1,53 @@
+<style type="text/css">
+.formRelatorio{
+	margin-top: 50px;
+
+}
+
+.linksRelatorios{
+	width: 25%;
+	margin-left: 33%;
+}
+
+.data{
+	width: 15%;
+	margin-left: 40%;
+	display: inline-block;
+}
+
+</style>
+<div class="container-fluid" ng-controller="InicialCtrl">
+	<div class="row logoFluxojojn">
+		<div class="col-md-6">
+			<div class="fluxojoin"><img src="imgs/fluxojoin.png"></div>
+		</div>
+		<div class="col-md-3 nomeEmpresa">
+			<h4>{{empresa}}</h4>
+		</div>
+		<div class="col-md-3 nomeUsuario">
+			<h4>Olá, {{usuario}}</h4>
+		</div>
+	</div>
+
+	<div ng-include="'views/links.html'"></div>
+
+	<div class="row tituloContaSaida">
+		<div class="col-md-12" align="center">
+			<h3>Relatório diário</h3>
+		</div>
+	</div>
+	<div ng-include="'views/linksRelatorios.html'" class="linksRelatorios"></div>
+
+	<div class="row">
+		<div class="col-md-12" ng-controller="RelatorioDiaCtrl">
+			<!-- <form name="relatorioDoDia" class="formRelatorio">
+				<input class="form-control data" type="date" name="data" ng-model="relatorio.data">
+				<a class="btn btn-success" ng-click="pesquisaDia(relatorio)">Pesquisar</a>
+			</form> -->
+
+			
+		</div>
+	</div>
+
+	
+</div>

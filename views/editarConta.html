@@ -1,0 +1,57 @@
+<style type="text/css">
+	.configTitulo{
+		text-align: center;
+		margin-bottom: 30px;
+	}
+
+	.form-control{
+		width: 15%;
+		display: inline-block;
+	}
+
+	.tipo{
+		margin-left: 30%;
+	}
+
+	#msgContaAtualizada{
+		text-align: center;
+		margin-top: 20px;
+		color: #0033cc;
+	}
+</style>
+<div class="container-fluid">
+	<div class="row logoFluxojojn">
+		<div class="col-md-6">
+			<div class="fluxojoin"><img src="imgs/fluxojoin.png"></div>
+		</div>
+		<div class="col-md-3 nomeEmpresa">
+			<h4>{{empresa}}</h4>
+		</div>
+		<div class="col-md-3 nomeUsuario">
+			<h4>Olá, {{usuario}}</h4>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-md-12 botaoVoltar">
+			<a class="btn btn-default" href="#/adicionarConta">Voltar</a>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-md-12 configTitulo">
+			<h3>Editar Contas</h3>
+		</div>
+	</div>
+
+	<div class="row">
+		<div class="col-md-12" ng-controller="EditarContaCtrl">
+			<form>
+				<input type="hidden" ng-model="conta.idempresa">
+				<input type="hidden" ng-model="conta.idconta">
+				<input class="form-control tipo" type="text" ng-model="conta.tipo" readonly>
+				<input class="form-control" type="text" name="contaEntrada" ng-model="conta.conta">
+				<a class="btn btn-success" ng-click="salvarContaEditada(conta)">Atualizar</a>
+			</form>
+			<div id="msgContaAtualizada">{{msgContaAtualizaSucesso}}</div>
+		</div>
+	</div>
+</div>

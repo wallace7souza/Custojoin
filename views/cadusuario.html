@@ -1,0 +1,28 @@
+<style type="text/css">
+
+</style>
+<div class="container-fluid">
+	<div class="row logoFluxojojn">
+		<div class="col-md-12">
+			<div class="fluxojoin"><img src="imgs/fluxojoin.png"></div>
+		</div>
+	</div>
+	<div class="row" ng-controller="CadUsuarioCtrl">
+		<div class="col-md-4"></div>
+		<div class="col-md-4">
+			<form class="signin-form" name="formCadastro">
+				Nome
+				<input class="form-control" type="text" name="nome" ng-model="usuario.nome" placeholder="Nome completo" required>
+				Usuário
+				<input class="form-control" type="text" name="user" ng-model="usuario.user" required>
+				E-mail
+				<input class="form-control" type="email" name="email" ng-model="usuario.email" required>
+				Senha
+				<input class="form-control" type="password" name="senha" ng-model="usuario.senha" required>
+
+				<a class="btn btn-success btn-lg btn-block" ng-disabled="formCadastro.$invalid" ng-click="cadastraUsuario(usuario)">Finalizar</a>
+			</form>
+		</div>
+		<div class="col-md-4"></div>
+	</div>
+</div>

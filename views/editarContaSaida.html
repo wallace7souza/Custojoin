@@ -1,0 +1,107 @@
+<style type="text/css">
+	.tituloContaSaida{
+		text-align: center;
+		margin-bottom: 20px;
+	}
+
+	.calendarioSaida{
+		width: 13%;
+		display: inline-block;
+	}
+
+	.subcategoria{
+		width: 15%;
+		display: inline-block;
+	}
+
+	.conta{
+		width: 15%;
+		display: inline-block;
+	}
+
+	.valorSaida{
+		width: 15%;
+		display: inline-block;
+	}
+
+	.formEdicaoSaida{
+		text-align: center;
+		margin-bottom: 20px;
+	}
+
+	.msgSucesso{
+		margin-top: 20px;
+		color: #0033cc;
+	}
+</style>
+
+<div class="container-fluid" ng-controller="InicialCtrl">
+	<div class="row logoFluxojojn">
+		<div class="col-md-6">
+			<div class="fluxojoin"><img src="imgs/fluxojoin.png"></div>
+		</div>
+		<div class="col-md-3 nomeEmpresa">
+			<h4>{{empresa}}</h4>
+		</div>
+		<div class="col-md-3 nomeUsuario">
+			<h4>Olá, {{usuario}}</h4>
+		</div>
+	</div>
+	<div ng-include="'views/links.html'"></div>
+	<!--<div class="row">
+		<div class="col-md-12 links">
+			<ul class="nav nav-pills">
+			  <li role="presentation"><a href="#/inicial">início</a></li>
+			  <li role="presentation"><a href="#/entradas">entradas</a></li>
+			  <li role="presentation"><a href="#/saidas">saídas</a></li>
+			  <li role="presentation"><a href="#/saldos">saldos</a></li>
+			  <li role="presentation"><a href="#">relatórios</a></li>
+			  <li role="presentation"><a href="#">produtos</a></li>
+			  <li role="presentation"><a href="#">investimentos</a></li>
+			  <li role="presentation"><a href="#">bancos</a></li>
+			  <li role="presentation"><a href="#">importação</a></li>
+			  <li role="presentation"><a href="#/configuracoes">configurações</a></li>
+			  <li role="presentation"><a href="#/" ng-click="sair()">sair</a></li>
+			</ul>
+		</div>
+	</div>-->
+	<div class="row">
+		<div class="col-md-12">
+			<a class="btn btn-default botaoVoltarAreaAdmin" href="#/saidas">Voltar</a>
+		</div>
+	</div>
+
+	<div class="row tituloContaSaida">
+		<div class="col-md-12">
+			<h3>Editar Conta de Saída</h3>
+		</div>
+	</div>
+
+	<div class="row formEdicaoSaida">
+		<div class="col-md-12" ng-controller="EditarContaSaidaCtrl" ng-repeat="contaS in saidas">
+		<form>
+			<input type="hidden" name="idcontaSaida" ng-model="contaS.idcontaSaida">
+
+			<input class="form-control calendarioSaida" type="date" name="data" ng-model="contaS.data" value="{{contaS.data}}">
+
+			<select class="form-control subcategoria" name="subcategoria" ng-model="contaS.idsubcategoria">
+				<option ng-repeat="sub in subcategorias" value="{{sub.idsubcategoria}}">{{sub.subcategoria}}</option>
+			</select>
+
+			<select class="form-control conta" name="saida" ng-model="contaS.idconta">
+				<option ng-repeat="cSaida in contasSaida" value="{{cSaida.idconta}}">{{cSaida.conta}}</option>
+			</select>
+
+			<input class="form-control valorSaida" type="text" name="valor" ng-model="contaS.valor" value="{{contaS.valor}}">
+
+			<a class="btn btn-success" ng-click="salvarContaSaida(contaS)">Salvar</a>
+		</form>
+		<div class="msgSucesso">
+			{{msgAtualizadaSucesso}}
+		</div>
+		</div>
+	</div>
+	
+
+</div>
+

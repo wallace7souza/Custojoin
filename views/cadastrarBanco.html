@@ -1,0 +1,86 @@
+<style type="text/css">
+.configTitulo{
+	text-align: center;
+}
+
+.formBanco{
+	text-align: center;
+}
+
+.agencia, .conta, .banco{
+	width: 20%;
+	margin-left: 40%;
+}
+
+.banco{
+	margin-bottom: 20px;
+}
+
+.msgBanco{
+	color: #0033cc;
+}
+
+</style>
+<div class="container-fluid">
+	<div class="row logoFluxojojn">
+		<div class="col-md-6">
+			<div class="fluxojoin"><img src="imgs/fluxojoin.png"></div>
+		</div>
+		<div class="col-md-3 nomeEmpresa">
+			<h4>{{empresa}}</h4>
+		</div>
+		<div class="col-md-3 nomeUsuario">
+			<h4>Olá, {{usuario}}</h4>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-md-12 botaoVoltar">
+			<a class="btn btn-default" href="#/configuracoes">Voltar</a>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-md-12 configTitulo">
+			<h3>Cadastrar Banco</h3>
+		</div>
+	</div>
+
+	<div class="row" ng-controller="CadastrarBancoCtrl">
+		<div class="col-md-12 formBanco">
+			<form>
+				<input type="text" class="form-control agencia" name="agencia" ng-model="banco.agencia" placeholder="Agência">
+				<input type="text" class="form-control conta" name="conta" ng-model="banco.conta" placeholder="Conta">
+				<input type="text" class="form-control banco" name="nome" ng-model="banco.nome" placeholder="Banco">
+				
+				<a class="btn btn-success" ng-click="salvarBanco(banco)">Salvar</a>
+			</form>
+		</div>
+		<div class="col-md-4"></div>
+		<div class="col-md-4">
+			<table width="900" class="table table-striped">
+				<thead>
+					<tr>
+						<th>Banco</th>
+						<th>Agência</th>
+						<th>Conta</th>
+						<th></th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr ng-repeat="banco in bancos">
+						<td>{{banco.banco}}</td>
+						<td>{{banco.agencia}}</td>
+						<td>{{banco.conta}}</td>
+						<td align="right"><a class="btn btn-sm btn-warning" 
+							href="#/editarBanco/{{banco.idbanco}}"><span class="glyphicon glyphicon-pencil" aria-hidden="true"></span></a>
+						</td>
+						<td align="right"><a class="btn btn-sm btn-danger" ng-click="apagarBanco(banco.idbanco)"><span class="glyphicon glyphicon-trash"></span></a></td>
+						
+					</tr>
+				</tbody>
+			</table>
+		</div>
+		<div class="col-md-4"></div>
+	</div>
+
+
+</div>

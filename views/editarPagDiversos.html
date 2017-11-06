@@ -1,0 +1,74 @@
+<style type="text/css">
+.configTitulo{
+	text-align: center;
+}
+.formularioPagDiv{
+	text-align: center;
+	margin-top: 20px;
+}
+.dataPagDiv{
+	width: 15%;
+	display: inline-block;
+}
+.pagDiv{
+	width: 25%;
+	display: inline-block;
+}
+.valorPagDiv{
+	width: 10%;
+	display: inline-block;
+}
+.exibeBens{
+	text-align: center;
+	margin-top: 20px;
+}
+
+.msgAtualizaOK{
+	text-align: center;
+	margin-top: 30px;
+	color: #0000e6;
+}
+
+</style>
+<div class="container-fluid">
+	<div class="row logoFluxojojn">
+		<div class="col-md-6">
+			<div class="fluxojoin"><img src="imgs/fluxojoin.png"></div>
+		</div>
+		<div class="col-md-3 nomeEmpresa">
+			<h4>{{empresa}}</h4>
+		</div>
+		<div class="col-md-3 nomeUsuario">
+			<h4>Olá, {{usuario}}</h4>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-md-12 botaoVoltar">
+			<a class="btn btn-default" href="#/cadastrarPagDiversos">Voltar</a>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-md-12 configTitulo">
+			<h3>Editar Pagamentos Diversos</h3>
+		</div>
+	</div>
+	<div class="row" ng-controller="EditarPagDiversosCtrl">
+		<div class="col-md-12 formularioPagDiv">
+			<form name="formPagDiversos">
+				<input type="hidden" name="idpagamentosDiversos" ng-model="pagDiversos.idpagamentosDiversos">
+				<input class="form-control dataPagDiv" type="text" name="data" ng-model="pagDiversos.data">
+				<input class="form-control pagDiv" type="text" name="Pagamento" ng-model="pagDiversos.pagamento" placeholder="Pagamento" required>
+				<input class="form-control valorPagDiv" type="text" name="valor" ng-model="pagDiversos.valor" placeholder="Valor" required>
+				<a class="btn btn-success" ng-disabled="formPagDiversos.$invalid" ng-click="atualizarPagDiv(pagDiversos)">Salvar</a>
+			</form>
+			<div class="msgAtualizaOK">
+				{{msgAtualizaOK}}
+			</div>
+		</div>
+	</div>
+
+
+</div>
+
+
+

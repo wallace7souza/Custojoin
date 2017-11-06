@@ -1,0 +1,75 @@
+<style type="text/css">
+.formInvest{
+	margin-top: 20px;
+	text-align: center;
+}
+
+.invest{
+	width: 20%;
+	display: inline-block;
+}
+
+.valorInvest{
+	width: 10%;
+	display: inline-block;
+}
+
+.dataInvest{
+	width: 15%;
+	display: inline-block;
+}
+.exibeInvestimentos{
+	margin-top: 20px;
+}
+
+.msgAtualizaOK{
+	text-align: center;
+	margin-top: 30px;
+	color: #0000e6;
+}
+
+</style>
+<div class="container-fluid">
+	<div class="row logoFluxojojn">
+		<div class="col-md-6">
+			<div class="fluxojoin"><img src="imgs/fluxojoin.png"></div>
+		</div>
+		<div class="col-md-3 nomeEmpresa">
+			<h4>{{empresa}}</h4>
+		</div>
+		<div class="col-md-3 nomeUsuario">
+			<h4>Olá, {{usuario}}</h4>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-md-12 botaoVoltar">
+			<a class="btn btn-default" href="#/cadastrarInvest">Voltar</a>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-md-12 configTitulo">
+			<h3>Editar Investimento</h3>
+		</div>
+	</div>
+	<div class="row" ng-controller="EditarInvestimentoCtrl">
+		<div class="col-md-12">
+			<form name="formInvestimentos" class="formInvest">
+				<input type="hidden" name="idinvestimento" ng-model="investimento.idinvestimento">
+				<input class="form-control dataInvest" type="text" name="data" ng-model="investimento.data" required>
+				<input class="form-control invest" type="text" name="invest" ng-model="investimento.investimento" 
+				placeholder="Investimento" required>
+				<input class="form-control valorInvest" type="text" name="valor" ng-model="investimento.valor" placeholder="Valor" required>
+				
+				<a class="btn btn-success" ng-disabled="formInvestimentos.$invalid" ng-click="AtualizarInvest(investimento)">Atualizar</a>
+			</form>
+			<div class="msgAtualizaOK">
+				{{msgAtualizaOK}}
+			</div>
+		</div>
+	</div>
+
+
+</div>
+
+
+
